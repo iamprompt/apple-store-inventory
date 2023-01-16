@@ -1,0 +1,19 @@
+{
+  "iphone": {
+    "name": "iPhone",
+    "slug": "iphone",
+    "image": "https://as-images.apple.com/is/iphone-14-pro-max-deeppurple-select_AV2?wid=724&hei=488&fmt=p-jpg&qlt=95&.v=1661288383204",
+    "models": [
+      {
+        "name": "iPhone 14",
+        "slug": "iphone-14",
+        "image": "https://as-images.apple.com/is/iphone-14-pro-max-deeppurple-select_AV2?wid=724&hei=488&fmt=p-jpg&qlt=95&.v=1661288383204",
+        "partNumbers": [{ "partNumber": "MQ0T3ZP/A" }]
+      }
+    ]
+  },
+  "apple-tv": {
+    "name": "Apple TV",
+    "slug": "apple-tv"
+  }
+}
