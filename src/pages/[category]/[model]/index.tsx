@@ -5,6 +5,7 @@ import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
 
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
+import { NextSeo } from 'next-seo'
 
 export const getServerSideProps: GetServerSideProps<
   { model: IModel; stores: any[]; delivery: Record<string, any> },
@@ -76,8 +77,8 @@ const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 
   return (
     <div className="max-w-screen-lg mx-auto px-10 pb-10 pt-16">
+      <NextSeo title={model.name} />
       <div className="space-y-8">
-        <pre className="whitespace-pre-wrap">{}</pre>
         <div>
           <h1 className="font-bold text-2xl">{model.name}</h1>
           <Table marginTop="mt-0">
