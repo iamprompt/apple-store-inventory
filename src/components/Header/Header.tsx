@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header className="h-11 bg-black/80 font-normal text-xs fixed w-full z-50">
       <nav className="flex justify-between items-center h-full flex-row max-w-screen-lg mx-auto px-8">
-        <Link scroll={false} href="/" className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2">
+        <Link href="/" className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2">
           Home
         </Link>
         <Link
@@ -17,11 +17,7 @@ export const Header = () => {
         <Link scroll={false} href="/#ipad" className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2">
           iPad
         </Link>
-        <Link
-          scroll={false}
-          href="/#AppleWatch"
-          className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2"
-        >
+        <Link scroll={false} href="/#watch" className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2">
           Watch
         </Link>
         <Link scroll={false} href="/#mac" className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2">
@@ -29,10 +25,17 @@ export const Header = () => {
         </Link>
         <Link
           scroll={false}
-          href="/#apple-tV"
+          href="/#tv-and-home"
           className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2"
         >
           TV
+        </Link>
+        <Link
+          scroll={false}
+          href="/#accessories"
+          className="text-[#f5f5f7] opacity-80 hover:opacity-100 transition-all px-2"
+        >
+          Accessories
         </Link>
       </nav>
     </header>

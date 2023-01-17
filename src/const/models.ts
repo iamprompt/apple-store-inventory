@@ -727,7 +727,7 @@ export const models: IModels = {
   },
   'tv-and-home': {
     name: 'TV & Home',
-    order: 3,
+    order: 6,
     models: {
       'apple-tv-4k-2022': {
         name: 'Apple TV 4K (2022)',
