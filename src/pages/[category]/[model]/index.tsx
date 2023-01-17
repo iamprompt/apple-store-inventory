@@ -89,6 +89,7 @@ const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
                     {store.storeName} ({store.storeNumber})
                   </TableHeaderCell>
                 ))}
+                <TableHeaderCell textAlignment="text-center">Additional Info</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -106,6 +107,9 @@ const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
                         : null}
                     </TableCell>
                   ))}
+                  <TableCell textAlignment="text-center">
+                    {model.partNumbers.find((number) => number.partNumber === partNumber)?.productName || ''}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

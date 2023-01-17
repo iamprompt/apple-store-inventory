@@ -1,5 +1,6 @@
 export type IPartNumber = {
   partNumber: string
+  productName?: string
 }
 
 export type IModel = {
@@ -25,54 +26,22 @@ export const models: IModels = {
         name: 'iPhone 14 Pro Max',
         imageKey: 'iphone-14-pro-max-deeppurple-select',
         partNumbers: [
-          {
-            partNumber: 'MQAM3ZP/A',
-          },
-          {
-            partNumber: 'MQC23ZP/A',
-          },
-          {
-            partNumber: 'MQAH3ZP/A',
-          },
-          {
-            partNumber: 'MQ9U3ZP/A',
-          },
-          {
-            partNumber: 'MQ9W3ZP/A',
-          },
-          {
-            partNumber: 'MQC43ZP/A',
-          },
-          {
-            partNumber: 'MQ9X3ZP/A',
-          },
-          {
-            partNumber: 'MQ9R3ZP/A',
-          },
-          {
-            partNumber: 'MQ9P3ZP/A',
-          },
-          {
-            partNumber: 'MQC33ZP/A',
-          },
-          {
-            partNumber: 'MQC53ZP/A',
-          },
-          {
-            partNumber: 'MQAJ3ZP/A',
-          },
-          {
-            partNumber: 'MQ9T3ZP/A',
-          },
-          {
-            partNumber: 'MQAF3ZP/A',
-          },
-          {
-            partNumber: 'MQ9Q3ZP/A',
-          },
-          {
-            partNumber: 'MQ9V3ZP/A',
-          },
+          { partNumber: 'MQAM3ZP/A' },
+          { partNumber: 'MQC23ZP/A' },
+          { partNumber: 'MQAH3ZP/A' },
+          { partNumber: 'MQ9U3ZP/A' },
+          { partNumber: 'MQ9W3ZP/A' },
+          { partNumber: 'MQC43ZP/A' },
+          { partNumber: 'MQ9X3ZP/A' },
+          { partNumber: 'MQ9R3ZP/A' },
+          { partNumber: 'MQ9P3ZP/A' },
+          { partNumber: 'MQC33ZP/A' },
+          { partNumber: 'MQC53ZP/A' },
+          { partNumber: 'MQAJ3ZP/A' },
+          { partNumber: 'MQ9T3ZP/A' },
+          { partNumber: 'MQAF3ZP/A' },
+          { partNumber: 'MQ9Q3ZP/A' },
+          { partNumber: 'MQ9V3ZP/A' },
         ],
       },
       'iphone-14-pro': {
@@ -736,55 +705,409 @@ export const models: IModels = {
         name: 'iPad mini',
         imageKey: 'ipad-mini-select-wifi-starlight-202109',
         partNumbers: [
+          { partNumber: 'MK7P3TH/A' },
+          { partNumber: 'MK7V3TH/A' },
+          { partNumber: 'MK7T3TH/A' },
+          { partNumber: 'MK7M3TH/A' },
+          { partNumber: 'MLWL3TH/A' },
+          { partNumber: 'MLWR3TH/A' },
+          { partNumber: 'MK7R3TH/A' },
+          { partNumber: 'MK7X3TH/A' },
+          { partNumber: 'MLX43TH/A' },
+          { partNumber: 'MLX93TH/A' },
+          { partNumber: 'MK8H3TH/A' },
+          { partNumber: 'MK8C3TH/A' },
+          { partNumber: 'MK8E3TH/A' },
+          { partNumber: 'MK8K3TH/A' },
+          { partNumber: 'MK893TH/A' },
+          { partNumber: 'MK8F3TH/A' },
+        ],
+      },
+    },
+  },
+  'tv-and-home': {
+    name: 'TV & Home',
+    order: 3,
+    models: {
+      'apple-tv-4k-2022': {
+        name: 'Apple TV 4K (2022)',
+        imageKey: 'apple-tv-4k-hero-select-202210',
+        partNumbers: [{ partNumber: 'MN873TH/A' }, { partNumber: 'MN893TH/A' }],
+      },
+    },
+  },
+  watch: {
+    name: 'Apple Watch',
+    order: 4,
+    models: {
+      'apple-watch-ultra': {
+        name: 'Apple Watch Ultra',
+        imageKey:
+          'MQDY3ref_VW_34FR+watch-49-titanium-ultra_VW_34FR_WF_CO+watch-face-49-alpine-ultra_VW_34FR_WF_CO_GEO_TH_LANG_TH',
+        partNumbers: [
           {
-            partNumber: 'MK7P3TH/A',
+            partNumber: 'MQFQ3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีสตาร์ไลท์',
           },
           {
-            partNumber: 'MK7V3TH/A',
+            partNumber: 'MQFR3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีสตาร์ไลท์',
           },
           {
-            partNumber: 'MK7T3TH/A',
+            partNumber: 'MQFT3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีสตาร์ไลท์',
           },
           {
-            partNumber: 'MK7M3TH/A',
+            partNumber: 'MNHJ3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีเขียว',
           },
           {
-            partNumber: 'MLWL3TH/A',
+            partNumber: 'MQFN3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีเขียว',
           },
           {
-            partNumber: 'MLWR3TH/A',
+            partNumber: 'MQFP3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีเขียว',
           },
           {
-            partNumber: 'MK7R3TH/A',
+            partNumber: 'MNHH3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีส้ม',
           },
           {
-            partNumber: 'MK7X3TH/A',
+            partNumber: 'MQFL3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีส้ม',
           },
           {
-            partNumber: 'MLX43TH/A',
+            partNumber: 'MQFM3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Alpine Loop สีส้ม',
           },
           {
-            partNumber: 'MLX93TH/A',
+            partNumber: 'MNHK3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีเหลือง/เบจ',
           },
           {
-            partNumber: 'MK8H3TH/A',
+            partNumber: 'MQFU3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีเหลือง/เบจ',
           },
           {
-            partNumber: 'MK8C3TH/A',
+            partNumber: 'MNHL3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีน้ำเงิน/เทา',
           },
           {
-            partNumber: 'MK8E3TH/A',
+            partNumber: 'MQFV3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีน้ำเงิน/เทา',
           },
           {
-            partNumber: 'MK8K3TH/A',
+            partNumber: 'MQFW3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีดำ/เทา',
           },
           {
-            partNumber: 'MK893TH/A',
+            partNumber: 'MQFX3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Trail Loop สีดำ/เทา',
           },
           {
-            partNumber: 'MK8F3TH/A',
+            partNumber: 'MQFK3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Ocean Band สีมิดไนท์',
+          },
+          {
+            partNumber: 'MNHF3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Ocean Band สีขาว',
+          },
+          {
+            partNumber: 'MNHG3TH/A',
+            productName: 'ตัวเรือนไทเทเนียม | สายแบบ Ocean Band สีเหลือง',
           },
         ],
+      },
+    },
+  },
+  mac: {
+    name: 'Mac',
+    order: 5,
+    models: {
+      'macbook-air-m1': {
+        name: 'MacBook Air M1',
+        imageKey: 'macbook-air-space-gray-select-201810',
+        partNumbers: [
+          {
+            partNumber: 'MGN63TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGND3TH/A',
+            productName: 'ทอง - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGN93TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+        ],
+      },
+      'macbook-air-m2': {
+        name: 'MacBook Air M2',
+        imageKey: 'macbook-air-midnight-select-20220606',
+        partNumbers: [
+          {
+            partNumber: 'MLY33TH/A',
+            productName: 'มิดไนท์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MLY13TH/A',
+            productName: 'สตาร์ไลท์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MLXW3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MLXY3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MLY43TH/A',
+            productName: 'มิดไนท์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MLY23TH/A',
+            productName: 'สตาร์ไลท์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MLXX3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MLY03TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+        ],
+      },
+      'macbook-pro-13': {
+        name: 'MacBook Pro 13"',
+        imageKey: 'mbp-spacegray-select-202206_GEO_TH_LANG_TH',
+        partNumbers: [
+          {
+            partNumber: 'MNEH3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MNEP3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MNEJ3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MNEQ3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+        ],
+      },
+      'macbook-pro-14-2023': {
+        name: 'MacBook Pro 14" (2023)',
+        imageKey: 'mbp14-silver-select-202301',
+        partNumbers: [
+          {
+            partNumber: 'MPHE3TH/A',
+            productName: 'เทาสเปซเกรย์ - โปรเซสเซอร์ Apple M2 Pro with 10-Core CPU and 16-Core GPU ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MPHH3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ Apple M2 Pro with 10-Core CPU and 16-Core GPU ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MPHF3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MPHJ3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MPHG3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิป Apple M2 Max พร้อม CPU แบบ 12-core และ GPU แบบ 30-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MPHK3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิป Apple M2 Max พร้อม CPU แบบ 12-core และ GPU แบบ 30-core ความเร็ว 1TB',
+          },
+        ],
+      },
+      'macbook-pro-16-2023': {
+        name: 'MacBook Pro 16" (2023)',
+        imageKey: 'mbp16-spacegray-select-202301',
+        partNumbers: [
+          {
+            partNumber: 'MNW83TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MNWC3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MNW93TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MNWD3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิป Apple M2 Pro พร้อม CPU แบบ 12-core และ GPU แบบ 19-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MNWA3TH/A',
+            productName:
+              'เทาสเปซเกรย์ - โปรเซสเซอร์ ชิป Apple M2 Max พร้อม CPU แบบ 12-core และ GPU แบบ 30-core ความเร็ว 1TB',
+          },
+          {
+            partNumber: 'MNWE3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิป Apple M2 Max พร้อม CPU แบบ 12-core และ GPU แบบ 30-core ความเร็ว 1TB',
+          },
+        ],
+      },
+      'imac-24-': {
+        name: 'iMac 24" (2021)',
+        imageKey: 'imac-24-blue-selection-hero-202104',
+        partNumbers: [
+          {
+            partNumber: 'MJV93TH/A',
+            productName: 'ฟ้า - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MJV83TH/A',
+            productName: 'เขียว - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MJVA3TH/A',
+            productName: 'ชมพู - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGTF3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 7-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGPK3TH/A',
+            productName: 'ฟ้า - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGPH3TH/A',
+            productName: 'เขียว - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGPM3TH/A',
+            productName: 'ชมพู - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGPC3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'Z12S',
+            productName: 'เหลือง - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'Z132',
+            productName: 'ส้ม - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'Z130',
+            productName: 'ม่วง - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MGPL3TH/A',
+            productName: 'ฟ้า - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MGPJ3TH/A',
+            productName: 'เขียว - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MGPN3TH/A',
+            productName: 'ชมพู - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MGPD3TH/A',
+            productName: 'เงิน - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'Z12T',
+            productName: 'เหลือง - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'Z133',
+            productName: 'ส้ม - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'Z131',
+            productName: 'ม่วง - โปรเซสเซอร์ ชิพ Apple M1 พร้อม CPU แบบ 8-core และ GPU แบบ 8-core ความเร็ว 512GB',
+          },
+        ],
+      },
+      'mac-mini-m2-2023': {
+        name: 'Mac mini M2 (2023)',
+        imageKey: 'mac-mini-hero-202301',
+        partNumbers: [
+          {
+            partNumber: 'MMFJ3TH/A',
+            productName: 'โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 256GB',
+          },
+          {
+            partNumber: 'MMFK3TH/A',
+            productName: 'โปรเซสเซอร์ ชิพ Apple M2 พร้อม CPU แบบ 8-core และ GPU แบบ 10-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MNH73TH/A',
+            productName: 'โปรเซสเซอร์ Apple M2 Pro with 10-Core CPU and 16-Core GPU ความเร็ว 512GB',
+          },
+        ],
+      },
+      'mac-studio': {
+        name: 'Mac Studio',
+        imageKey: 'mac-studio-select-202203',
+        partNumbers: [
+          {
+            partNumber: 'MJMV3TH/A',
+            productName: 'โปรเซสเซอร์ M1 Max CPU แบบ 10-core GPU แบบ 24-core Neural Engine แบบ 16-core ความเร็ว 512GB',
+          },
+          {
+            partNumber: 'MJMW3TH/A',
+            productName: 'โปรเซสเซอร์ M1 Ultra CPU แบบ 20-core GPU แบบ 48-core Neural Engine แบบ 32-core ความเร็ว 1TB',
+          },
+        ],
+      },
+    },
+  },
+  accessories: {
+    name: 'Accessories',
+    order: 99,
+    models: {
+      airpods: {
+        name: 'AirPods',
+        imageKey: 'MV7N2',
+        partNumbers: [
+          { partNumber: 'MV7N2ZA/A' },
+          { partNumber: 'MME73ZA/A' },
+          { partNumber: 'MPNY3ZA/A' },
+          { partNumber: 'MQD83ZA/A' },
+          { partNumber: 'MGYJ3ZA/A' },
+          { partNumber: 'MGYH3ZA/A' },
+          { partNumber: 'MGYL3ZA/A' },
+          { partNumber: 'MGYN3ZA/A' },
+          { partNumber: 'MGYM3ZA/A' },
+        ],
+      },
+      airtag: {
+        name: 'AirTag',
+        imageKey: 'airtag-single-select-202104_FV1',
+        partNumbers: [{ partNumber: 'MX542TH/A' }, { partNumber: 'MX532TH/A' }],
       },
     },
   },
