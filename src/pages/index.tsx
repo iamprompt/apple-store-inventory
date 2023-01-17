@@ -2,7 +2,8 @@ import { InferGetStaticPropsType, NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import models from '~/const/models.json'
+import { models } from '~/const/models'
+import { getStoreImage } from '~/utils/helpers'
 
 export const getStaticProps = async () => {
   return {
@@ -33,7 +34,11 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ models
                       <span>{subModel.name}</span>
                       <div className="h-40 relative w-full">
                         <Image
-                          src={`https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/${subModel.imageKey}?wid=500&hei=500&fmt=png-alpha&qlt=80`}
+                          src={getStoreImage(subModel.imageKey, {
+                            width: 500,
+                            height: 500,
+                            format: 'png-alpha',
+                          })}
                           fill
                           alt={subModel.name}
                           className="object-contain"
