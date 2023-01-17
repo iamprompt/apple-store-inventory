@@ -1,8 +1,10 @@
-import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
+import { Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 
 import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
+
+import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
 
 export const getServerSideProps: GetServerSideProps<
   { model: IModel; stores: any[]; delivery: Record<string, any> },
@@ -89,29 +91,43 @@ const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
                     {store.storeName} ({store.storeNumber})
                   </TableHeaderCell>
                 ))}
-                <TableHeaderCell textAlignment="text-center">Additional Info</TableHeaderCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {Object.entries(delivery).map(([partNumber, delivery]) => (
-                <TableRow key={partNumber}>
-                  <TableCell textAlignment="text-left">
-                    {stores[0].partsAvailability[partNumber].messageTypes.regular.storePickupProductTitle}
-                  </TableCell>
-                  <TableCell textAlignment="text-center">{partNumber}</TableCell>
-                  <TableCell textAlignment="text-center">{delivery.deliveryOptionMessages[0]['displayName']}</TableCell>
-                  {stores.map((store) => (
-                    <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
-                      {store.partsAvailability[partNumber]
-                        ? `${store.partsAvailability[partNumber].pickupSearchQuote}`
-                        : null}
+              {Object.entries(delivery).map(([partNumber, delivery]) => {
+                const addtionalInfo = model.partNumbers.find((number) => number.partNumber === partNumber)?.productName
+
+                return (
+                  <TableRow key={partNumber}>
+                    <TableCell textAlignment="text-left">
+                      <div className="flex items-center">
+                        {stores[0].partsAvailability[partNumber].messageTypes.regular.storePickupProductTitle}
+                        {addtionalInfo ? (
+                          <Icon
+                            icon={QuestionMarkCircleIcon}
+                            variant="simple"
+                            tooltip={addtionalInfo}
+                            size="sm"
+                            color="gray"
+                            marginTop="mt-0"
+                          />
+                        ) : null}
+                      </div>
                     </TableCell>
-                  ))}
-                  <TableCell textAlignment="text-center">
-                    {model.partNumbers.find((number) => number.partNumber === partNumber)?.productName || ''}
-                  </TableCell>
-                </TableRow>
-              ))}
+                    <TableCell textAlignment="text-center">{partNumber}</TableCell>
+                    <TableCell textAlignment="text-center">
+                      {delivery.deliveryOptionMessages[0]['displayName']}
+                    </TableCell>
+                    {stores.map((store) => (
+                      <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
+                        {store.partsAvailability[partNumber]
+                          ? `${store.partsAvailability[partNumber].pickupSearchQuote}`
+                          : null}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                )
+              })}
             </TableBody>
           </Table>
         </div>
