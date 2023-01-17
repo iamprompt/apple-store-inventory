@@ -24,7 +24,7 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ models
               <div id={key} className="scroll-m-16" key={key}>
                 <h1 className="text-2xl font-medium">{model.name}</h1>
                 <div className="h-px bg-gray-300" />
-                <div className="grid grid-cols-3 gap-5 mt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-4">
                   {Object.entries(model.models).map(([subKey, subModel]) => (
                     <Link
                       key={subKey}
