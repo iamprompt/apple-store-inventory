@@ -41,6 +41,8 @@ export const getStaticProps: GetStaticProps<
   const fulfillment = await fetch(fulfillmentUrl)
   const timestamp = new Date().toISOString()
 
+  console.log(fulfillmentUrl)
+
   console.log(fulfillment.status)
 
   if (fulfillment.status !== 200) {
@@ -58,7 +60,7 @@ export const getStaticProps: GetStaticProps<
     body: { content },
   } = fulfillmentData
 
-  // console.log(content)
+  console.log(content)
 
   const pickupStores = content.pickupMessage.stores
   const deliveryItems = Object.entries(content.deliveryMessage || {})
@@ -147,7 +149,7 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
                     </TableCell>
                     <TableCell textAlignment="text-center">{partNumber}</TableCell>
                     <TableCell textAlignment="text-center">
-                      {delivery.deliveryOptionMessages[0]['displayName']}
+                      {delivery?.deliveryOptionMessages[0]['displayName']}
                     </TableCell>
                     {stores.map((store) => (
                       <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">

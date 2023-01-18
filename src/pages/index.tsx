@@ -35,9 +35,9 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ models
                       <div className="h-40 relative w-full">
                         <Image
                           src={getStoreImage(subModel.imageKey, {
-                            width: 500,
-                            height: 500,
-                            format: 'png-alpha',
+                            width: 250,
+                            height: 250,
+                            format: 'p-jpg',
                           })}
                           fill
                           alt={subModel.name}

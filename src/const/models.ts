@@ -1107,7 +1107,433 @@ export const models: IModels = {
       airtag: {
         name: 'AirTag',
         imageKey: 'airtag-single-select-202104_FV1',
-        partNumbers: [{ partNumber: 'MX542TH/A' }, { partNumber: 'MX532TH/A' }],
+        partNumbers: [
+          {
+            partNumber: 'MX532TH/A',
+            productName: 'AirTag',
+          },
+          {
+            partNumber: 'MX542TH/A',
+            productName: 'AirTag แพ็ค 4 ชิ้น',
+          },
+          {
+            partNumber: 'MM073FE/A',
+            productName: 'พวงกุญแจหนังสำหรับ AirTag - สีเขียวฟอเรสต์',
+          },
+          {
+            partNumber: 'MX4A2FE/A',
+            productName: 'ห่วงคล้องแบบหนังสำหรับ AirTag - สีน้ำตาลอานม้า',
+          },
+          {
+            partNumber: 'MK0W3FE/A',
+            productName: 'ห่วงคล้องสำหรับ AirTag - สีเหลืองทานตะวัน',
+          },
+          {
+            partNumber: 'MNG03TH/A',
+            productName: 'แท็กกระเป๋าเดินทาง AirTag Hermès - สี Noir',
+          },
+          {
+            partNumber: 'MQDD3TH/A',
+            productName: 'เครื่องประดับห้อยกระเป๋า AirTag Hermès - สี Rose Texas',
+          },
+          {
+            partNumber: 'MQDK3TH/A',
+            productName: 'พวงกุญแจ AirTag Hermès - สี Maison',
+          },
+          {
+            partNumber: 'HNPX2ZM/A',
+            productName: 'Belkin Secure Holder พร้อมสายคล้องสำหรับ AirTag - สีชมพู',
+          },
+          {
+            partNumber: 'HNPU2ZM/A',
+            productName: 'Belkin Secure Holder พร้อมพวงกุญแจสำหรับ AirTag - สีน้ำเงิน',
+          },
+          {
+            partNumber: 'HPTT2ZM/A',
+            productName: 'เคส OtterBox Rugged สำหรับ AirTag',
+          },
+          {
+            partNumber: 'HPTW2ZM/A',
+            productName: 'Incase Woolenex Key Clip สำหรับ AirTag',
+          },
+          {
+            partNumber: 'HPTE2ZM/A',
+            productName: 'Belkin Secure Holder พร้อมพวงกุญแจสำหรับ AirTag (4 ชิ้น)',
+          },
+        ],
+      },
+      'magsafe-clear-case': {
+        name: 'MagSafe Clear Case',
+        imageKey: 'MPU73',
+        partNumbers: [
+          {
+            partNumber: 'MPU73FE/A',
+            productName: 'เคสใสสำหรับ iPhone 14 Pro Max พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MPU63FE/A',
+            productName: 'เคสใสสำหรับ iPhone 14 Pro พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MPU13FE/A',
+            productName: 'เคสใสสำหรับ iPhone 14 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MPU43FE/A',
+            productName: 'เคสใสสำหรับ iPhone 14 Plus พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MM2Y3FE/A',
+            productName: 'เคสใสสำหรับ iPhone 13 Pro พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MM313FE/A',
+            productName: 'เคสใสสำหรับ iPhone 13 Pro Max พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MM2X3FE/A',
+            productName: 'เคสใสสำหรับ iPhone 13 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'MM2W3FE/A',
+            productName: 'เคสใสสำหรับ iPhone 13 mini พร้อม MagSafe',
+          },
+
+          {
+            partNumber: 'MHLM3ZA/A',
+            productName: 'เคสใสสำหรับ iPhone 12 | iPhone 12 Pro พร้อม MagSafe',
+          },
+
+          {
+            partNumber: 'MHLN3ZA/A',
+            productName: 'เคสใสสำหรับ iPhone 12 Pro Max พร้อม MagSafe',
+          },
+
+          {
+            partNumber: 'MHLL3ZA/A',
+            productName: 'เคสใสสำหรับ iPhone 12 mini พร้อม MagSafe',
+          },
+        ],
+      },
+      'magsafe-leather-case': {
+        name: 'Magsafe Leather Case',
+        imageKey: 'MM193',
+        partNumbers: [
+          {
+            partNumber: 'MM193FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 13 Pro พร้อม MagSafe - สีน้ำตาลทอง',
+          },
+          {
+            partNumber: 'MM1Q3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 13 Pro Max พร้อม MagSafe - สีเขียวซีคัวยา',
+          },
+          {
+            partNumber: 'MM143FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 13 พร้อม MagSafe - สีเชอรี่เข้ม',
+          },
+          {
+            partNumber: 'MM0H3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 13 mini พร้อม MagSafe - สีม่วงวิสทีเรีย',
+          },
+          {
+            partNumber: 'MPPQ3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 14 Pro Max พร้อม MagSafe - สีน้ำตาลแดงอัมเบอร์',
+          },
+          {
+            partNumber: 'MPPG3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 14 Pro พร้อม MagSafe - สีมิดไนท์',
+          },
+          {
+            partNumber: 'MPP53FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 14 พร้อม MagSafe - สีเขียวฟอเรสต์',
+          },
+          {
+            partNumber: 'MPPC3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 14 Plus พร้อม MagSafe - สีม่วงน้ำหมึก',
+          },
+          {
+            partNumber: 'MPPX3FE/A',
+            productName: 'เคสหนังแบบกระเป๋าสตางค์สำหรับ iPhone พร้อม MagSafe - สีน้ำตาลแดงอัมเบอร์',
+          },
+          {
+            partNumber: 'MJYR3FE/A',
+            productName: 'iPhone 12|เคสหนังสำหรับ 12 Pro พร้อม MagSafe - สีม่วงเข้ม',
+          },
+          {
+            partNumber: 'MHYD3ZA/A',
+            productName: 'ซองหนังสำหรับ iPhone 12 | 12 Pro พร้อม MagSafe - สีบอลติกบลู',
+          },
+          {
+            partNumber: 'MHKH3ZA/A',
+            productName: 'เคสหนังสำหรับ iPhone 12 Pro Max พร้อม MagSafe - สีส้มแคลิฟอร์เนียป๊อปปี้',
+          },
+          {
+            partNumber: 'MK093FE/A',
+            productName: 'ซองหนังสำหรับ iPhone 12 mini พร้อม MagSafe - สีม่วงเข้ม',
+          },
+          {
+            partNumber: 'MHYG3ZA/A',
+            productName: 'ซองหนังสำหรับ iPhone 12 Pro Max พร้อม MagSafe - สีน้ำตาลอานม้า',
+          },
+          {
+            partNumber: 'MJYQ3FE/A',
+            productName: 'เคสหนังสำหรับ iPhone 12 mini พร้อม MagSafe - สีม่วงเข้ม',
+          },
+        ],
+      },
+      'magsafe-silicone-case': {
+        name: 'Magsafe Silicone Case',
+        imageKey: 'MN5X3',
+        partNumbers: [
+          {
+            partNumber: 'MN653FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 13 Pro พร้อม MagSafe - สีฟ้าควันหมอก',
+          },
+          {
+            partNumber: 'MN6C3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 13 Pro Max พร้อม MagSafe - สีเขียวยูคาลิปตัส',
+          },
+          {
+            partNumber: 'MN643FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 13 พร้อม MagSafe - สีส้มเนคทารีน',
+          },
+          {
+            partNumber: 'MN5X3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 13 mini พร้อม MagSafe - สีเหลืองผิวเลมอน',
+          },
+          {
+            partNumber: 'MPTX3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 14 Pro Max พร้อม MagSafe - สีม่วงเอลเดอร์เบอร์รี่',
+          },
+          {
+            partNumber: 'MPTF3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 14 Pro พร้อม MagSafe - สีน้ำเงินสตอร์มบลู',
+          },
+          {
+            partNumber: 'MPRY3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 14 พร้อม MagSafe - สีไลแลค',
+          },
+          {
+            partNumber: 'MPTC3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 14 Plus พร้อม MagSafe - สีเขียวเอเชเวอเรีย',
+          },
+          {
+            partNumber: 'MKTN3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 12 mini พร้อม MagSafe - สีส้มอิเล็คทริค',
+          },
+          {
+            partNumber: 'MKTR3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 12 | 12 Pro พร้อม MagSafe - สีส้มอิเล็คทริค',
+          },
+          {
+            partNumber: 'MKTW3FE/A',
+            productName: 'เคสซิลิโคนสำหรับ iPhone 12 Pro Max พร้อม MagSafe - สีเหลืองทานตะวัน',
+          },
+        ],
+      },
+      'otterbox-case': {
+        name: 'OtterBox Case',
+        imageKey: 'HPR32',
+        partNumbers: [
+          {
+            partNumber: 'HQ512ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 14 - หลายสี',
+          },
+          {
+            partNumber: 'HQ562ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 14 Plus - สีม่วง',
+          },
+          {
+            partNumber: 'HQ5B2ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 14 Pro - สีฟ้า',
+          },
+          {
+            partNumber: 'HQ5C2ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 14 Pro Max - สีดำ',
+          },
+          {
+            partNumber: 'HQ4L2ZM/A',
+            productName: 'OtterBox iPhone 14 Lumen Series พร้อม MagSafe - สีทอง',
+          },
+          {
+            partNumber: 'HQ4P2ZM/A',
+            productName: 'OtterBox iPhone 14 Plus Lumen Series พร้อม MagSafe - สีเงิน',
+          },
+          {
+            partNumber: 'HQ4V2ZM/A',
+            productName: 'OtterBox iPhone 14 Pro Lumen Series พร้อม MagSafe - สีฟ้า',
+          },
+          {
+            partNumber: 'HQ4W2ZM/A',
+            productName: 'OtterBox iPhone 14 Pro Max Lumen Series พร้อม MagSafe - สีดำ',
+          },
+          {
+            partNumber: 'HPR02ZM/A',
+            productName: 'เคส OtterBox Aneu Series พร้อม MagSafe สำหรับ iPhone 13 Pro - สีน้ำเงิน',
+          },
+          {
+            partNumber: 'HPR32ZM/A',
+            productName: 'เคส OtterBox Aneu Series พร้อม MagSafe สำหรับ iPhone 13 Pro Max - สีดำ',
+          },
+          {
+            partNumber: 'HPQY2ZM/A',
+            productName: 'เคส OtterBox Aneu Series พร้อม MagSafe สำหรับ iPhone 13 - สีแดง',
+          },
+          {
+            partNumber: 'HPQT2ZM/A',
+            productName: 'เคส OtterBox Aneu Series พร้อม MagSafe สำหรับ iPhone 13 mini - สีฟ้า',
+          },
+          {
+            partNumber: 'HPRH2ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 13 Pro - สีดำ/ขาว',
+          },
+          {
+            partNumber: 'HPRQ2ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 13 Pro Max - สีบานเย็น',
+          },
+          {
+            partNumber: 'HPRG2ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 13 - สีน้ำเงิน',
+          },
+          {
+            partNumber: 'HPR82ZM/A',
+            productName: 'เคส OtterBox Figura Series พร้อม MagSafe สำหรับ iPhone 13 mini - สีส้มคอรัล',
+          },
+          {
+            partNumber: 'HPV62ZM/A',
+            productName: 'OtterBox iPhone 13 Pro Lumen Series พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPVB2ZM/A',
+            productName: 'OtterBox iPhone 13 Pro Max Lumen Series พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPV22ZM/A',
+            productName: 'OtterBox iPhone 13 Lumen Series with MagSafe',
+          },
+          {
+            partNumber: 'HPUV2ZM/A',
+            productName: 'OtterBox iPhone 13 mini Lumen Series with MagSafe',
+          },
+          {
+            partNumber: 'HPX42ZM/A',
+            productName: 'เคส OtterBox Core Series พร้อม MagSafe สำหรับ iPhone 13',
+          },
+          {
+            partNumber: 'HPX12ZM/A',
+            productName: 'เคส OtterBox Core Series สำหรับ iPhone 13 mini (ใช้ MagSafe ได้)',
+          },
+          {
+            partNumber: 'HPX62ZM/A',
+            productName: 'เคส OtterBox Core Series พร้อม MagSafe สำหรับ iPhone 13 Pro',
+          },
+          {
+            partNumber: 'HPX72ZM/A',
+            productName: 'เคส OtterBox Core Series พร้อม MagSafe สำหรับ iPhone 13 Pro Max',
+          },
+        ],
+      },
+      'magsafe-charger': {
+        name: 'Magsafe Charger',
+        imageKey: 'MHXH3',
+        partNumbers: [
+          {
+            partNumber: 'MHXH3ZA/A',
+            productName: 'ที่ชาร์จ MagSafe',
+          },
+          {
+            partNumber: 'MHXF3ZA/A',
+            productName: 'ที่ชาร์จ MagSafe แบบคู่',
+          },
+          {
+            partNumber: 'HPU82J/A',
+            productName: 'แผ่นรองชาร์จแบบไร้สาย Belkin BOOST↑CHARGE™ PRO 3-in-1 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPBJ2ZM/A',
+            productName: 'Belkin Magnetic Car Vent Mount PRO พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPL72J/A',
+            productName: 'แท่นชาร์จไร้สาย Belkin BOOST↑CHARGE™ PRO 2-in-1 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPT72ZM/A',
+            productName: 'Belkin BOOST↑CHARGE™ PRO Portable Wireless Charger Pad พร้อม MagSafe Special Edition',
+          },
+          {
+            partNumber: 'HPKW2ZM/A',
+            productName: 'ที่ชาร์จ Twelve South Forté สำหรับ MagSafe',
+          },
+          {
+            partNumber: 'HPT92ZM/A',
+            productName: 'mophie magnetic portable stand ใช้งานได้กับ MagSafe',
+          },
+          {
+            partNumber: 'HPTA2ZM/A',
+            productName: 'mophie 3-in-1 travel charger with MagSafe',
+          },
+          {
+            partNumber: 'HQ3F2J/A',
+            productName: 'แท่นชาร์จแบบไร้สาย Belkin BOOST↑CHARGE PRO 3-in-1 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HPP92ZM/A',
+            productName: 'ที่ชาร์จ Native Union Rise Dock สำหรับ MagSafe',
+          },
+          {
+            partNumber: 'HPT82ZM/A',
+            productName: 'Belkin Magnetic Fitness Mount',
+          },
+          {
+            partNumber: 'MLWJ3ZA/A',
+            productName: 'สายชาร์จเร็วแบบแม่เหล็กเป็น USB-C สำหรับ Apple Watch (1 ม.)',
+          },
+          {
+            partNumber: 'MX2E2ZA/A',
+            productName: 'สายชาร์จแบบแม่เหล็กสำหรับ Apple Watch (1 ม.)',
+          },
+          {
+            partNumber: 'HPU92ZM/A',
+            productName: 'ที่ชาร์จเร็วแบบพกพา Belkin BOOST↑CHARGE™ PRO สำหรับ Apple Watch',
+          },
+          {
+            partNumber: 'HP8K2J/A',
+            productName: 'ที่รองชาร์จแบบไร้สาย Belkin BOOST↑CHARGE™ 3-in-1 สำหรับ iPhone + Apple Watch + AirPods',
+          },
+          {
+            partNumber: 'HPPR2ZM/A',
+            productName: 'OtterBox Folding Stand สำหรับที่ชาร์จ MagSafe',
+          },
+          {
+            partNumber: 'HN6K2ZM/A',
+            productName: 'แท่นชาร์จแบบไร้สาย Belkin BOOST↑CHARGE - Special Edition',
+          },
+          {
+            partNumber: 'HNGW2ZM/A',
+            productName: 'แป้นชาร์จหนีบช่องแอร์แบบไร้สาย Scosche MagicGrip Freeflow',
+          },
+          {
+            partNumber: 'HP8Q2J/A',
+            productName: 'ที่รองชาร์จแบบไร้สาย Belkin BOOST↑CHARGE™ 7.5W Special Edition',
+          },
+          {
+            partNumber: 'HPUG2TH/A',
+            productName: 'แท่นชาร์จ OtterBox 2-in-1 พร้อม MagSafe',
+          },
+          {
+            partNumber: 'HQ342ZM/A',
+            productName: 'แท่นวาง mophie 3-in-1 สำหรับที่ชาร์จ MagSafe',
+          },
+          {
+            partNumber: 'HNGY2ZM/A',
+            productName: 'ชุดอุปกรณ์ชาร์จ Scosche BaseLynx Modular',
+          },
+          {
+            partNumber: 'HQ6A2ZM/A',
+            productName: 'ที่ชาร์จในรถยนต์แบบไร้สาย Belkin BOOST↑CHARGE™ PRO พร้อม MagSafe',
+          },
+        ],
       },
     },
   },
