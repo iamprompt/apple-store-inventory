@@ -6,10 +6,12 @@ import '@tremor/react/dist/esm/tremor.css'
 
 import SEO from '~/utils/defaultSeo'
 import { DefaultSeo } from 'next-seo'
+import { GoogleAnalytics } from '~/components/Analytics/GoogleAnalytics'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
+      <GoogleAnalytics />
       <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} />
