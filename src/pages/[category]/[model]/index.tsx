@@ -1,14 +1,15 @@
 import { Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 
 import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
 
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
 import { NextSeo } from 'next-seo'
+import dayjs from 'dayjs'
 
-export const getServerSideProps: GetServerSideProps<
-  { model: IModel; stores: any[]; delivery: Record<string, any> },
+export const getStaticProps: GetStaticProps<
+  { model: IModel; stores: any[]; delivery: Record<string, any>; updatedAt: string },
   {
     category: string
     model: string
@@ -35,6 +36,7 @@ export const getServerSideProps: GetServerSideProps<
   const partNumbers = selectedModel.partNumbers.map(({ partNumber }) => partNumber)
   const fulfillmentUrl = getFulfillmentUrl(partNumbers)
   const fulfillment = await fetch(fulfillmentUrl)
+  const timestamp = new Date().toISOString()
 
   console.log(fulfillment.status)
 
@@ -67,11 +69,33 @@ export const getServerSideProps: GetServerSideProps<
       model: selectedModel,
       stores: pickupStores,
       delivery: deliveryItems,
+      updatedAt: timestamp,
     },
+    revalidate: 1,
   }
 }
 
-const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ model, stores, delivery }) => {
+export const getStaticPaths = async () => {
+  const paths = Object.keys(models).reduce((acc, category) => {
+    const categoryModels = models[category].models
+
+    const categoryPaths = Object.keys(categoryModels).map((model) => ({
+      params: {
+        category,
+        model,
+      },
+    }))
+
+    return [...acc, ...categoryPaths]
+  }, [] as { params: { category: string; model: string } }[])
+
+  return {
+    paths,
+    fallback: 'blocking',
+  }
+}
+
+const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model, stores, delivery, updatedAt }) => {
   console.log(stores)
   console.log(delivery)
 
@@ -81,6 +105,7 @@ const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
       <div className="space-y-8">
         <div>
           <h1 className="font-bold text-2xl">{model.name}</h1>
+          <p className="text-sm text-gray-500">Last updated: {dayjs(updatedAt).format('DD MMM YYYY [at] h:mm:ss A')}</p>
           <Table marginTop="mt-0">
             <TableHead>
               <TableRow>
