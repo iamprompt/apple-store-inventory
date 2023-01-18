@@ -1,5 +1,11 @@
 import { Badge, Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import {
+  GetServerSideProps,
+  GetStaticProps,
+  InferGetServerSidePropsType,
+  InferGetStaticPropsType,
+  NextPage,
+} from 'next'
 
 import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
@@ -13,7 +19,7 @@ import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
-export const getStaticProps: GetStaticProps<
+export const getServerSideProps: GetServerSideProps<
   { model: IModel; stores: any[]; delivery: Record<string, any>; updatedAt: string },
   {
     category: string
@@ -25,7 +31,6 @@ export const getStaticProps: GetStaticProps<
   if (!params) {
     return {
       notFound: true,
-      revalidate: 1,
     }
   }
 
@@ -36,7 +41,6 @@ export const getStaticProps: GetStaticProps<
   if (!selectedModel) {
     return {
       notFound: true,
-      revalidate: 1,
     }
   }
 
@@ -52,7 +56,6 @@ export const getStaticProps: GetStaticProps<
   if (fulfillment.status !== 200) {
     return {
       notFound: true,
-      revalidate: 1,
     }
   }
 
@@ -81,26 +84,15 @@ export const getStaticProps: GetStaticProps<
       delivery: deliveryItems,
       updatedAt: timestamp,
     },
-    revalidate: 1,
   }
 }
 
-export const getStaticPaths = async () => {
-  const paths = Object.entries(models).reduce((acc, [category, { models }]) => {
-    const categoryPaths = Object.entries(models).map(([model]) => ({
-      params: { category, model },
-    }))
-
-    return [...acc, ...categoryPaths]
-  }, [] as { params: { category: string; model: string } }[])
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model, stores, delivery, updatedAt }) => {
+const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  model,
+  stores,
+  delivery,
+  updatedAt,
+}) => {
   console.log(stores)
   console.log(delivery)
 
