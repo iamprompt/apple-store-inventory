@@ -30,6 +30,7 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ models
                       key={subKey}
                       href={`/${key}/${subKey}`}
                       className="relative flex flex-col-reverse justify-center items-center p-6 bg-white border border-gray-300 rounded-xl transition-all gap-3 hover:shadow-lg"
+                      prefetch={false}
                     >
                       <span>{subModel.name}</span>
                       <div className="h-40 relative w-full">
