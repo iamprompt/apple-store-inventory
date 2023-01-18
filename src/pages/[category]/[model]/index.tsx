@@ -7,6 +7,7 @@ import { getFulfillmentUrl } from '~/utils/helpers'
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
 import { NextSeo } from 'next-seo'
 import dayjs from 'dayjs'
+import { useEffect, useState } from 'react'
 
 export const getStaticProps: GetStaticProps<
   { model: IModel; stores: any[]; delivery: Record<string, any>; updatedAt: string },
@@ -97,13 +98,19 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
   // console.log(stores)
   // console.log(delivery)
 
+  const [lastUpdated, setLastUpdated] = useState('')
+
+  useEffect(() => {
+    setLastUpdated(dayjs(updatedAt).format('DD MMM YYYY [at] h:mm:ss A'))
+  }, [updatedAt])
+
   return (
     <div className="max-w-screen-lg mx-auto px-10 pb-10 pt-16">
       <NextSeo title={model.name} />
       <div className="space-y-8">
         <div>
           <h1 className="font-bold text-2xl">{model.name}</h1>
-          <p className="text-sm text-gray-500">Last updated: {dayjs(updatedAt).format('DD MMM YYYY [at] h:mm:ss A')}</p>
+          <p className="text-sm text-gray-500">Last updated: {lastUpdated}</p>
           <Table marginTop="mt-0">
             <TableHead>
               <TableRow>
