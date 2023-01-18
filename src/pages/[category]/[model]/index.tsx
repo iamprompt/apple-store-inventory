@@ -117,117 +117,121 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
         <div>
           <h1 className="font-bold text-2xl">{model.name}</h1>
           <p className="text-sm text-gray-500">Last updated: {lastUpdated}</p>
-          <Table marginTop="mt-0">
-            <TableHead>
-              <TableRow>
-                <TableHeaderCell textAlignment="text-left">Model Name</TableHeaderCell>
-                <TableHeaderCell textAlignment="text-center">Model Number</TableHeaderCell>
-                <TableHeaderCell textAlignment="text-center">Delivery Status</TableHeaderCell>
-                {stores.map((store) => (
-                  <TableHeaderCell key={store.storeNumber} textAlignment="text-center">
-                    {store.storeName} ({store.storeNumber})
-                  </TableHeaderCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {Object.entries(delivery).map(([partNumber, delivery]) => {
-                const addtionalInfo = model.partNumbers.find((number) => number.partNumber === partNumber)?.productName
+          <div className="-mx-4">
+            <Table marginTop="mt-0">
+              <TableHead>
+                <TableRow>
+                  <TableHeaderCell textAlignment="text-left">Model Name</TableHeaderCell>
+                  <TableHeaderCell textAlignment="text-center">Model Number</TableHeaderCell>
+                  <TableHeaderCell textAlignment="text-center">Delivery Status</TableHeaderCell>
+                  {stores.map((store) => (
+                    <TableHeaderCell key={store.storeNumber} textAlignment="text-center">
+                      {store.storeName} ({store.storeNumber})
+                    </TableHeaderCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {Object.entries(delivery).map(([partNumber, delivery]) => {
+                  const addtionalInfo = model.partNumbers.find(
+                    (number) => number.partNumber === partNumber
+                  )?.productName
 
-                const dateRegex = /(\d{1,2}\/\d{1,2}\/\d{4})/
-                const deliveryStatus = delivery?.deliveryOptionMessages[0]['displayName']
-                const deliveryDate = deliveryStatus.match(dateRegex)?.[0]
+                  const dateRegex = /(\d{1,2}\/\d{1,2}\/\d{4})/
+                  const deliveryStatus = delivery?.deliveryOptionMessages[0]['displayName']
+                  const deliveryDate = deliveryStatus.match(dateRegex)?.[0]
 
-                const isReadyToDeliver =
-                  !!deliveryDate || deliveryStatus.includes('พร้อมขาย') || deliveryStatus.includes('พรุ่งนี้')
+                  const isReadyToDeliver =
+                    !!deliveryDate || deliveryStatus.includes('พร้อมขาย') || deliveryStatus.includes('พรุ่งนี้')
 
-                const deliveryRelative = deliveryStatus.includes('พร้อมขาย')
-                  ? 'พร้อมขาย'
-                  : deliveryStatus.includes('พรุ่งนี้')
-                  ? 'พรุ่งนี้'
-                  : undefined
+                  const deliveryRelative = deliveryStatus.includes('พร้อมขาย')
+                    ? 'พร้อมขาย'
+                    : deliveryStatus.includes('พรุ่งนี้')
+                    ? 'พรุ่งนี้'
+                    : undefined
 
-                return (
-                  <TableRow key={partNumber}>
-                    <TableCell textAlignment="text-left">
-                      <div className="flex items-center">
-                        {stores[0].partsAvailability[partNumber].messageTypes.regular.storePickupProductTitle}
-                        {addtionalInfo ? (
-                          <Icon
-                            icon={QuestionMarkCircleIcon}
-                            variant="simple"
-                            tooltip={addtionalInfo}
-                            size="sm"
-                            color="gray"
-                            marginTop="mt-0"
-                          />
-                        ) : null}
-                        <Link href={`https://www.apple.com/th/shop/product/${partNumber}`} target="_blank">
-                          <Icon
-                            icon={LinkIcon}
-                            variant="simple"
-                            size="sm"
-                            color="gray"
-                            marginTop="mt-0"
-                            tooltip="Link to Apple Store"
-                          />
-                        </Link>
-                      </div>
-                    </TableCell>
-                    <TableCell textAlignment="text-center">{partNumber}</TableCell>
-                    <TableCell textAlignment="text-center">
-                      {isReadyToDeliver ? (
-                        <Badge
-                          text={deliveryDate || deliveryRelative || deliveryStatus}
-                          color="green"
-                          size="sm"
-                          tooltip={deliveryStatus}
-                        />
-                      ) : (
-                        <Icon
-                          icon={XCircleIcon}
-                          variant="simple"
-                          size="sm"
-                          color="red"
-                          marginTop="mt-0"
-                          tooltip={deliveryStatus}
-                        />
-                      )}
-                    </TableCell>
-                    {stores.map((store) => {
-                      const storeAvailability = store.partsAvailability[partNumber]
-                      const storeStatus = storeAvailability.pickupSearchQuote
-
-                      const isReadyToPickup = storeStatus.includes('พร้อมจำหน่าย')
-
-                      const pickupDate = storeStatus.match(dateRegex)?.[0]
-
-                      const pickupRelative = storeStatus.includes('วันนี้')
-                        ? 'วันนี้'
-                        : storeStatus.includes('พรุ่งนี้')
-                        ? 'พรุ่งนี้'
-                        : undefined
-
-                      return (
-                        <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
-                          {isReadyToPickup ? (
-                            <Badge
-                              text={pickupDate || pickupRelative || storeStatus}
-                              color="green"
+                  return (
+                    <TableRow key={partNumber}>
+                      <TableCell textAlignment="text-left">
+                        <div className="flex items-center">
+                          {stores[0].partsAvailability[partNumber].messageTypes.regular.storePickupProductTitle}
+                          {addtionalInfo ? (
+                            <Icon
+                              icon={QuestionMarkCircleIcon}
+                              variant="simple"
+                              tooltip={addtionalInfo}
                               size="sm"
-                              tooltip={storeStatus}
+                              color="gray"
+                              marginTop="mt-0"
                             />
-                          ) : (
-                            <Icon icon={XCircleIcon} color="red" size="sm" tooltip={storeStatus} />
-                          )}
-                        </TableCell>
-                      )
-                    })}
-                  </TableRow>
-                )
-              })}
-            </TableBody>
-          </Table>
+                          ) : null}
+                          <Link href={`https://www.apple.com/th/shop/product/${partNumber}`} target="_blank">
+                            <Icon
+                              icon={LinkIcon}
+                              variant="simple"
+                              size="sm"
+                              color="gray"
+                              marginTop="mt-0"
+                              tooltip="Link to Apple Store"
+                            />
+                          </Link>
+                        </div>
+                      </TableCell>
+                      <TableCell textAlignment="text-center">{partNumber}</TableCell>
+                      <TableCell textAlignment="text-center">
+                        {isReadyToDeliver ? (
+                          <Badge
+                            text={deliveryDate || deliveryRelative || deliveryStatus}
+                            color="green"
+                            size="sm"
+                            tooltip={deliveryStatus}
+                          />
+                        ) : (
+                          <Icon
+                            icon={XCircleIcon}
+                            variant="simple"
+                            size="sm"
+                            color="red"
+                            marginTop="mt-0"
+                            tooltip={deliveryStatus}
+                          />
+                        )}
+                      </TableCell>
+                      {stores.map((store) => {
+                        const storeAvailability = store.partsAvailability[partNumber]
+                        const storeStatus = storeAvailability.pickupSearchQuote
+
+                        const isReadyToPickup = storeStatus.includes('พร้อมจำหน่าย')
+
+                        const pickupDate = storeStatus.match(dateRegex)?.[0]
+
+                        const pickupRelative = storeStatus.includes('วันนี้')
+                          ? 'วันนี้'
+                          : storeStatus.includes('พรุ่งนี้')
+                          ? 'พรุ่งนี้'
+                          : undefined
+
+                        return (
+                          <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
+                            {isReadyToPickup ? (
+                              <Badge
+                                text={pickupDate || pickupRelative || storeStatus}
+                                color="green"
+                                size="sm"
+                                tooltip={storeStatus}
+                              />
+                            ) : (
+                              <Icon icon={XCircleIcon} color="red" size="sm" tooltip={storeStatus} />
+                            )}
+                          </TableCell>
+                        )
+                      })}
+                    </TableRow>
+                  )
+                })}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </div>
     </div>
