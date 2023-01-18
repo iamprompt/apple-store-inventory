@@ -1,10 +1,11 @@
-import { Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
+import { Badge, Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 
 import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
 
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
+import XCircleIcon from '@heroicons/react/24/solid/XCircleIcon'
 import { NextSeo } from 'next-seo'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
@@ -60,7 +61,7 @@ export const getStaticProps: GetStaticProps<
     body: { content },
   } = fulfillmentData
 
-  console.log(content)
+  // console.log(content)
 
   const pickupStores = content.pickupMessage.stores
   const deliveryItems = Object.entries(content.deliveryMessage || {})
@@ -97,8 +98,8 @@ export const getStaticPaths = async () => {
 }
 
 const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model, stores, delivery, updatedAt }) => {
-  // console.log(stores)
-  // console.log(delivery)
+  console.log(stores)
+  console.log(delivery)
 
   const [lastUpdated, setLastUpdated] = useState('')
 
@@ -130,6 +131,19 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
               {Object.entries(delivery).map(([partNumber, delivery]) => {
                 const addtionalInfo = model.partNumbers.find((number) => number.partNumber === partNumber)?.productName
 
+                const dateRegex = /(\d{1,2}\/\d{1,2}\/\d{4})/
+                const deliveryStatus = delivery?.deliveryOptionMessages[0]['displayName']
+                const deliveryDate = deliveryStatus.match(dateRegex)?.[0]
+
+                const isReadyToDeliver =
+                  !!deliveryDate || deliveryStatus.includes('พร้อมขาย') || deliveryStatus.includes('พรุ่งนี้')
+
+                const deliveryRelative = deliveryStatus.includes('พร้อมขาย')
+                  ? 'พร้อมขาย'
+                  : deliveryStatus.includes('พรุ่งนี้')
+                  ? 'พรุ่งนี้'
+                  : undefined
+
                 return (
                   <TableRow key={partNumber}>
                     <TableCell textAlignment="text-left">
@@ -149,15 +163,53 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
                     </TableCell>
                     <TableCell textAlignment="text-center">{partNumber}</TableCell>
                     <TableCell textAlignment="text-center">
-                      {delivery?.deliveryOptionMessages[0]['displayName']}
+                      {isReadyToDeliver ? (
+                        <Badge
+                          text={deliveryDate || deliveryRelative || deliveryStatus}
+                          color="green"
+                          size="sm"
+                          tooltip={deliveryStatus}
+                        />
+                      ) : (
+                        <Icon
+                          icon={XCircleIcon}
+                          variant="simple"
+                          size="sm"
+                          color="red"
+                          marginTop="mt-0"
+                          tooltip={deliveryStatus}
+                        />
+                      )}
                     </TableCell>
-                    {stores.map((store) => (
-                      <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
-                        {store.partsAvailability[partNumber]
-                          ? `${store.partsAvailability[partNumber].pickupSearchQuote}`
-                          : null}
-                      </TableCell>
-                    ))}
+                    {stores.map((store) => {
+                      const storeAvailability = store.partsAvailability[partNumber]
+                      const storeStatus = storeAvailability.pickupSearchQuote
+
+                      const isReadyToPickup = storeStatus.includes('พร้อมจำหน่าย')
+
+                      const pickupDate = storeStatus.match(dateRegex)?.[0]
+
+                      const pickupRelative = storeStatus.includes('วันนี้')
+                        ? 'วันนี้'
+                        : storeStatus.includes('พรุ่งนี้')
+                        ? 'พรุ่งนี้'
+                        : undefined
+
+                      return (
+                        <TableCell key={`${store.storeNumber}.${partNumber}`} textAlignment="text-center">
+                          {isReadyToPickup ? (
+                            <Badge
+                              text={pickupDate || pickupRelative || storeStatus}
+                              color="green"
+                              size="sm"
+                              tooltip={storeStatus}
+                            />
+                          ) : (
+                            <Icon icon={XCircleIcon} color="red" size="sm" tooltip={storeStatus} />
+                          )}
+                        </TableCell>
+                      )
+                    })}
                   </TableRow>
                 )
               })}
