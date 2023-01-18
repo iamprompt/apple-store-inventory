@@ -1,5 +1,5 @@
 import { Icon, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from '@tremor/react'
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 
 import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
@@ -8,7 +8,7 @@ import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircle
 import { NextSeo } from 'next-seo'
 import dayjs from 'dayjs'
 
-export const getServerSideProps: GetServerSideProps<
+export const getStaticProps: GetStaticProps<
   { model: IModel; stores: any[]; delivery: Record<string, any>; updatedAt: string },
   {
     category: string
@@ -20,6 +20,7 @@ export const getServerSideProps: GetServerSideProps<
   if (!params) {
     return {
       notFound: true,
+      revalidate: 1,
     }
   }
 
@@ -30,6 +31,7 @@ export const getServerSideProps: GetServerSideProps<
   if (!selectedModel) {
     return {
       notFound: true,
+      revalidate: 1,
     }
   }
 
@@ -43,6 +45,7 @@ export const getServerSideProps: GetServerSideProps<
   if (fulfillment.status !== 200) {
     return {
       notFound: true,
+      revalidate: 1,
     }
   }
 
@@ -75,14 +78,24 @@ export const getServerSideProps: GetServerSideProps<
   }
 }
 
-const Page: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
-  model,
-  stores,
-  delivery,
-  updatedAt,
-}) => {
-  console.log(stores)
-  console.log(delivery)
+export const getStaticPaths = async () => {
+  const paths = Object.entries(models).reduce((acc, [category, { models }]) => {
+    const categoryPaths = Object.entries(models).map(([model]) => ({
+      params: { category, model },
+    }))
+
+    return [...acc, ...categoryPaths]
+  }, [] as { params: { category: string; model: string } }[])
+
+  return {
+    paths,
+    fallback: 'blocking',
+  }
+}
+
+const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model, stores, delivery, updatedAt }) => {
+  // console.log(stores)
+  // console.log(delivery)
 
   return (
     <div className="max-w-screen-lg mx-auto px-10 pb-10 pt-16">
