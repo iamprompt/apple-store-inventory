@@ -5,10 +5,13 @@ import { IModel, models } from '~/const/models'
 import { getFulfillmentUrl } from '~/utils/helpers'
 
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon'
+import LinkIcon from '@heroicons/react/24/solid/LinkIcon'
 import XCircleIcon from '@heroicons/react/24/solid/XCircleIcon'
+
 import { NextSeo } from 'next-seo'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export const getStaticProps: GetStaticProps<
   { model: IModel; stores: any[]; delivery: Record<string, any>; updatedAt: string },
@@ -159,6 +162,16 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ model,
                             marginTop="mt-0"
                           />
                         ) : null}
+                        <Link href={`https://www.apple.com/th/shop/product/${partNumber}`} target="_blank">
+                          <Icon
+                            icon={LinkIcon}
+                            variant="simple"
+                            size="sm"
+                            color="gray"
+                            marginTop="mt-0"
+                            tooltip="Link to Apple Store"
+                          />
+                        </Link>
                       </div>
                     </TableCell>
                     <TableCell textAlignment="text-center">{partNumber}</TableCell>
